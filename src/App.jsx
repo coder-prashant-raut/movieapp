@@ -62,7 +62,7 @@ function App() {
       <Footer/> */}
 
 <Navbar  search={search} setSearch={setSearch} setFilteredUsers={setFilteredUsers} movie={movie} filteredUsers={filteredUsers} 
-   trendingmovie={trendingmovie}  setfilTrendingmovie={setFilteredUsers}
+   trendingmovie={trendingmovie}  setfilTrendingmovie={setfilTrendingmovie}
 
 />
 <Routes>
