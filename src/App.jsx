@@ -33,16 +33,17 @@ function App() {
     fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=f9a340ae7811ba6fc9c70a00d6680fae')
    .then(res => res.json())
    .then(json => setTrendingmovie(json.results))
+   
  }
 
 
 
- const  getPopularMovie = ()=> {
+//  const  getPopularMovie = ()=> {
     
-  fetch('https://api.themoviedb.org/3/movie/popular?api_key=f9a340ae7811ba6fc9c70a00d6680fae')
- .then(res => res.json())
- .then(json => console.log(json.results))
-}
+//   fetch('https://api.themoviedb.org/3/movie/popular?api_key=f9a340ae7811ba6fc9c70a00d6680fae')
+//  .then(res => res.json())
+//  .then(json => console.log(json.results))
+// }
 
 //https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
 
@@ -55,10 +56,10 @@ function App() {
     getMovie(),
     getFavMovie()
     
-  }, [filteredUsers, search ])
+  }, [])
 
 
-  // console.log(getPopularMovie);
+  console.log(filteredUsers);
   
   
   return (
