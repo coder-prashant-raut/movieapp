@@ -1,13 +1,32 @@
 import React, { useEffect, useState } from 'react' 
 import { Rating } from "@material-tailwind/react";
+import DetailsCard from './DetailsCard';
 function HomePage({movie, filteredUsers}) {
 
 
+    const [selectedMovie, setSelectedMovie] = useState('')
+
+
+    const handleDetailsClick = (filteredUsers) => {
+    
+        setSelectedMovie(filteredUsers); // Set employee to display in the modal
+        
+        // console.log(filteredUsers);
+        
+        
+        console.log(filteredUsers.title);
+        
+      };
+
+      const closeModal = () => {
+        setSelectedMovie(null); // Close the modal
+      };
   
 
   return (
 
-    <div className='min-h-screen flex flex-wrap justify-around p-5 dark:bg-gray-600'>
+
+    <div className='min-h-screen flex flex-wrap justify-around p-5 dark:bg-gray-600' >
 
 
     {filteredUsers.map((filteredUsers)=>(
@@ -27,6 +46,8 @@ function HomePage({movie, filteredUsers}) {
       
       
               <Rating value={4} />
+
+              <button onClick={() => handleDetailsClick(filteredUsers)} >show details</button>
         
           </div>
       </div>
@@ -34,6 +55,11 @@ function HomePage({movie, filteredUsers}) {
                 ))}
 
 
+ {/* Render the popup if an employee is selected */}
+ {selectedMovie && (
+        <DetailsCard selectedMovie={selectedMovie} onClose={closeModal} />
+        
+      )}
 
 
 

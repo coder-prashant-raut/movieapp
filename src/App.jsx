@@ -36,6 +36,14 @@ function App() {
  }
 
 
+
+ const  getPopularMovie = ()=> {
+    
+  fetch('https://api.themoviedb.org/3/movie/popular?api_key=f9a340ae7811ba6fc9c70a00d6680fae')
+ .then(res => res.json())
+ .then(json => console.log(json.results))
+}
+
 //https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
 
 
@@ -50,7 +58,7 @@ function App() {
   }, [filteredUsers, search ])
 
 
-  console.log(trendingmovie);
+  // console.log(getPopularMovie);
   
   
   return (
@@ -69,7 +77,7 @@ function App() {
 
   <Route index element={<HomePage  movie={movie}  filteredUsers={filteredUsers} />
 }/>
-  <Route path='/popular' element={<Popular/>}/>
+  <Route path='/popular' element={<Popular  filtrendingmovie={filtrendingmovie}/>}/>
   <Route path='/trending' element={<Trending  filtrendingmovie={filtrendingmovie} />}/>
   
 </Routes>      
