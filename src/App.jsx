@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-
 import './App.css'
 import HomePage from './components/HomePage'
 import Navbar from './components/Navbar'
@@ -22,8 +21,10 @@ function App() {
   const  getMovie = ()=> {
     
      fetch('https://api.themoviedb.org/3/discover/movie?api_key=f9a340ae7811ba6fc9c70a00d6680fae')
-    .then(res => res.json())
-    .then(json => setMovie(json.results))
+    .then((res) => res.json())
+    .then((json) => {setMovie(json.results);
+                      setFilteredUsers(json.results)
+    })
   }
 
 
@@ -31,8 +32,10 @@ function App() {
   const  getFavMovie = ()=> {
     
     fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=f9a340ae7811ba6fc9c70a00d6680fae')
-   .then(res => res.json())
-   .then(json => setTrendingmovie(json.results))
+   .then((res) => res.json())
+   .then((json )=>{ setTrendingmovie(json.results);
+                    setfilTrendingmovie(json.results)
+   })
    
  }
 
